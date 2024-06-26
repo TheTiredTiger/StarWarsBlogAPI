@@ -6,9 +6,9 @@ function CarouselView() {
     const { data, setData } = useContext(Context);
 
     return ( 
-    <div>
-        <h3>Characters</h3>
-        <div>
+    <div className="container-fluid">
+        <h3 className="section-title">Characters</h3>
+        <div className="scrolling-wrapper">
             {data && data.map((person, index) => 
             <Card
             name={person.name}

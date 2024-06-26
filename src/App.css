@@ -1,12 +1,6 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
-
-.card {
-    width: 18rem;
-}
-
-
+@tailwind utilities; */
 
 body {
     background-color:black;
@@ -17,4 +11,70 @@ body {
     radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
     background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
     background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+    
+}
+
+.section-title {
+    color: #2e557c;
+    font-family: 'Star Wars', sans-serif;
+    margin-left: 2rem;
+}
+
+.navbar-brand {
+    color: white;
+}
+
+.navbar {
+    background-color: #2e557c;
+    font-size: 20px;
+    color: white;
+}
+
+.navbar-brand {
+    font-family: 'Star Wars', sans-serif;
+}
+
+.perspective {
+    color: 	#ad7d37;
+    transform: perspective(300px) rotateX(25deg);
+    text-align: center;
+    margin: 2rem 0rem 2rem 0rem;
+    font-family: "ITC Serif Gothic";
+    font-size: 30px;
+  }
+
+.scrolling-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.card {
+    margin: 2rem;
+}
+
+.card-body {
+    background-color: black;
+    color: white;
+}
+
+.hidden {
+    float: right;
+}
+
+.hidden i {
+    visibility: hidden;
+}
+
+.hidden:hover i {
+    visibility: visible;
+}
+
+.fave {
+    float: inline-end;
 }
