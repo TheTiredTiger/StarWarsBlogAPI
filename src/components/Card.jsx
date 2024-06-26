@@ -1,19 +1,21 @@
-import React from "react";
-
-function Card() {
+function Card(props) {
     return ( 
         <>
             <div className="card">
-            <img src="..." className="card-img-top" alt="..." />
-            <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <div className="buttons d-inline">
-                    <button href="#" className="btn btn-primary">Go somewhere</button>
-                    <button href="#" className="btn btn-outline-warning">Heart</button>
+                <img src={props.img} className="card-img-top" alt="..." />
+                <div className="card-body">
+                    <h5 className="card-title">{props.name}</h5>
+                    <p className="card-text">
+                        Gender: {props.gender}<br/>
+                        Eye colour: {props.eye}<br/>
+                        Hair colour: {props.hair}
+                    </p>
+                    <div className="buttons d-flex">
+                        <button href="#" className="btn btn-primary">Learn more</button>
+                        <button href="#" className="btn btn-outline-warning"><i className="fa-regular fa-heart"></i></button>
+                    </div>
                 </div>
-            </div>
-            </div>        
+            </div>     
         </>
      );
 }
