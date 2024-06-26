@@ -1,9 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
+import {APIContext} from "../src/components/Context.jsx"
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <APIContext>
+      <App />
+    </APIContext>
   </React.StrictMode>,
 )

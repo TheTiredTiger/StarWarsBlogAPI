@@ -1,6 +1,6 @@
 function Card(props) {
     return ( 
-        <>
+        <div className="scrolling-wrapper">
             <div className="card">
                 <img src={props.img} className="card-img-top" alt="..." />
                 <div className="card-body">
@@ -16,7 +16,7 @@ function Card(props) {
                     </div>
                 </div>
             </div>     
-        </>
+        </div>
      );
 }
 

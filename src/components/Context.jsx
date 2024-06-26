@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import axios from "axios";
 
 const Context = createContext();
@@ -31,7 +31,7 @@ function APIContext({children}) {
         }, [])
 
     return (
-        <Context.Provider value={{ data, setData, fetchData }}>
+        <Context.Provider value={{ data, setData }}>
             {children}
         </Context.Provider>
     )
