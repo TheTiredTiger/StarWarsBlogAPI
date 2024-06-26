@@ -8,13 +8,13 @@ function Navbar() {
             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
             <button className="btn btn-outline-warning" type="submit">Search</button>
             </form>
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Favourites
+            <a className="btn btn-outline-warning nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i className="fa-regular fa-heart"></i>
           </a>
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
-            <li><a class="dropdown-item" href="#">
+          <ul className="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+            <li><a className="dropdown-item" href="#">
               Action 
-              <div className="hidden">
+              <div className="delete-icon">
                 <i className="fa-solid fa-trash" aria-hidden="true"/>
               </div>
             </a></li>

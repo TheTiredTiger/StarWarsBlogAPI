@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
+
 function Card(props) {
     return ( 
         <div>
-            <div className="card" style={{width: "18rem", flex: "0 0 auto"}}>
-                <img src={props.img} className="card-img-top" alt="..." />
+            <div className="card">
+                <img src={props.img} className="card-img-top" alt={props.name} />
                 <div className="card-body">
                     <h5 className="card-title">{props.name}</h5>
                     <p className="card-text">
@@ -11,8 +13,14 @@ function Card(props) {
                         Hair colour: {props.hair}
                     </p>
                     <div className="buttons d-flex justify-content-between">
-                        <button href="#" className="btn btn-primary">Learn more</button>
-                        <button href="#" className="btn btn-outline-warning"><i className="fa-regular fa-heart"></i></button>                        
+                        <button href="#" className="btn btn-primary"> 
+                            <Link className="character-link" to={`/character/${props.id}`}>
+                                Learn more
+                            </Link>
+                        </button>
+                        <button href="#" className="btn btn-outline-warning">
+                            <i className="fa-regular fa-heart"></i>
+                        </button>                        
                     </div>
                 </div>
             </div>     

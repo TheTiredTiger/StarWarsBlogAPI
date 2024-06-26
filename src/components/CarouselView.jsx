@@ -6,11 +6,11 @@ function CarouselView() {
     const { data, setData } = useContext(Context);
 
     return ( 
-    <div className="container-fluid">
+    <div >
         <h3 className="section-title">Characters</h3>
-        <div className="scrolling-wrapper">
-            {data && data.map((person, index) => 
-            <Card
+        <div className="container-fluid scrolling-wrapper">
+            {data && data.map((person, id) => 
+            <Card id={id}
             name={person.name}
             gender={person.gender}
             eye={person.eye_color}

@@ -1,7 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
 
-const Context = createContext();
+const Context = createContext(null);
 
 const URL = " https://swapi.dev/api/people"
 let imgBase = "https://starwars-visualguide.com/assets/img/characters";
@@ -13,8 +13,8 @@ function APIContext({children}) {
         async function fetchData() {
           try {
           let response = await axios.get(URL)
-          let people = response.data.results.map((el, i) => {
-            let img = `${imgBase}/${i + 1}.jpg`;
+          let people = response.data.results.map((el, index) => {
+            let img = `${imgBase}/${index + 1}.jpg`;
             return {...el, img};
           })
     

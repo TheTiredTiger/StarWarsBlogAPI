@@ -16,22 +16,22 @@ body {
 
 .section-title {
     color: #2e557c;
+    background-color: rgba(255, 255, 255, 0.473);
     font-family: 'Star Wars', sans-serif;
-    margin-left: 2rem;
-}
-
-.navbar-brand {
-    color: white;
+    padding: 1rem 2rem;
 }
 
 .navbar {
     background-color: #2e557c;
     font-size: 20px;
-    color: white;
 }
 
 .navbar-brand {
     font-family: 'Star Wars', sans-serif;
+}
+
+.dropdown-toggle {
+    padding: 0.5rem 1rem;
 }
 
 .perspective {
@@ -56,6 +56,8 @@ body {
 
 .card {
     margin: 2rem;
+    width: 18rem;
+    flex: "0 0 auto";
 }
 
 .card-body {
@@ -63,18 +65,19 @@ body {
     color: white;
 }
 
-.hidden {
+.delete-icon {
     float: right;
-}
-
-.hidden i {
-    visibility: hidden;
-}
-
-.hidden:hover i {
-    visibility: visible;
 }
 
 .fave {
     float: inline-end;
+}
+
+.character-link {
+    color: white;
+    text-decoration-line: none;
+}
+
+.character-name{
+    color: white;
 }
