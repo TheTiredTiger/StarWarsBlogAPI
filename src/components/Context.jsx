@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useReducer } from "react";
 import axios from "axios";
 
 const Context = createContext(null);
@@ -7,7 +7,8 @@ const URL = " https://swapi.dev/api/people"
 let imgBase = "https://starwars-visualguide.com/assets/img/characters";
 
 function APIContext({children}) {
-    const [data, setData] = useState([])
+    const [data, setData] = useState([]);
+    const [favorites, dispatch] = useReducer(favoritesReducer, []);
 
     useEffect(() => {
         async function fetchData() {
@@ -18,8 +19,9 @@ function APIContext({children}) {
             return {...el, img};
           })
     
-          console.log(response, people);
+          console.log(people);
           setData(people);
+          localStorage.setItem("data", JSON.stringify(people))
     
           } catch (err) {
             console.error(err);
@@ -30,12 +32,41 @@ function APIContext({children}) {
     
         }, [])
 
+        function favoritesReducer(favorites, action){
+          switch(action.type) {
+            case "add": {
+              return [
+                ...favorites,
+              action.payload
+              ]
+            }
+            case "remove": {
+              return favorites.filter((item) => {
+                return item.name !== action.payload.name
+              })
+            }
+          }
+        }
+
+        function handleAdd(character) {
+          dispatch({
+              type: "add",
+              payload: character
+          });
+        };
+      
+        function handleDelete(character) {
+          dispatch({
+              type: "remove", 
+              payload: character
+          });
+        };
+
     return (
-        <Context.Provider value={{ data, setData }}>
+        <Context.Provider value={{ data, setData, handleAdd, handleDelete }}>
             {children}
         </Context.Provider>
     )
-
 }
 
 export {Context, APIContext};

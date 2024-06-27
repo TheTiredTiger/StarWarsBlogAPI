@@ -6,7 +6,7 @@ function CarouselView() {
     const { data, setData } = useContext(Context);
 
     return ( 
-    <div >
+    <div>
         <h3 className="section-title">Characters</h3>
         <div className="container-fluid scrolling-wrapper">
             {data && data.map((person, id) => 

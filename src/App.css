@@ -73,11 +73,15 @@ body {
     float: inline-end;
 }
 
-.character-link {
+.character-link, .button-return {
     color: white;
     text-decoration-line: none;
 }
 
 .character-name{
     color: white;
+}
+
+ul {
+    list-style-type: none;
 }

@@ -13,7 +13,7 @@ function App() {
     <Navbar />
       <Routes>
         <Route path="/" element={ <CarouselView />} />
-        <Route path="/character/:id" element={ <DetailedView />}  />
+        <Route path="/character/:id" element={ <DetailedView />} />
       </Routes>
     </BrowserRouter>
     </>
