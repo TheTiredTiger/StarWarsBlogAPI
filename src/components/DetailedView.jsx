@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 function DetailedView() {
     let data = JSON.parse(localStorage.getItem("data"));
-    // let favorites = JSON.parse(localStorage.getItem("favorites"))
     let { id } = useParams();
     let character = data[id];
     

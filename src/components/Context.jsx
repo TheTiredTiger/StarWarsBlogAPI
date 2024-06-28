@@ -8,7 +8,8 @@ let imgBase = "https://starwars-visualguide.com/assets/img/characters";
 
 function APIContext({children}) {
     const [data, setData] = useState([]);
-    const [favorites, dispatch] = useReducer(favoritesReducer, []);
+    
+    const [favorites, dispatch] = useReducer(favoritesReducer, JSON.parse(localStorage.getItem("favorites")) || []);
 
     useEffect(() => {
         async function fetchData() {
@@ -51,14 +52,14 @@ function APIContext({children}) {
           return favorites;
       }
     }
-
+    
     useEffect(() => {
       localStorage.setItem("favorites", JSON.stringify(favorites))
     }, [favorites])
 
 
     return (
-        <Context.Provider value={{ data, setData, favoritesReducer }}>
+        <Context.Provider value={{ data, setData, favorites, dispatch }}>
             {children}
         </Context.Provider>
     )

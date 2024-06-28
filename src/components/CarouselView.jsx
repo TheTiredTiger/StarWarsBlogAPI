@@ -3,7 +3,8 @@ import Card from "./Card";
 import { Context } from "./Context";
 
 function CarouselView() {
-    const { data, setData, favorites, dispatch } = useContext(Context);
+    const { data, setData, dispatch } = useContext(Context);
+    let favorites = JSON.parse(localStorage.getItem("favorites"))
 
     function handleAdd(newFave) {
         dispatch({
@@ -19,6 +20,7 @@ function CarouselView() {
     });
     localStorage.setItem("favorites", JSON.stringify(favorites.filter(item => item.name !== faveRemove)))
     };
+  
 
     return ( 
     <div>
