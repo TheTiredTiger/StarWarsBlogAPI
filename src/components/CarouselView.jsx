@@ -34,7 +34,10 @@ function CarouselView() {
             hair={person.hair_color}
             img={person.img}
             id={id}
-            onAdd={(person) => handleAdd(person.name)}
+            onAdd={() => {
+                handleAdd(person.name)
+                console.log(person)
+            }}
             onDelete={(id) => handleDelete(id)}
             />)}
         </div>       

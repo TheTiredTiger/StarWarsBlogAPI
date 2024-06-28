@@ -15,7 +15,7 @@ function DetailedView() {
                 </div>
                 <div className="col-md-8">
                     <div className="card-body">
-                        <h5 className="card-title character-name">{character.name}</h5>
+                        <h5 className="card-title character-name" style={{color: "black"}}>{character.name}</h5>
                         <div className="card-text">
                             <ul >
                                 <li>Birth year: {character.birth_year}</li>
