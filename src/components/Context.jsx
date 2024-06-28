@@ -30,7 +30,7 @@ function APIContext({children}) {
     
         fetchData();
     
-        }, [])
+    }, [])
 
         function favoritesReducer(favorites, action){
           switch(action.type) {

@@ -60,7 +60,7 @@ body {
     flex: "0 0 auto";
 }
 
-.card-body {
+.carousel-card {
     background-color: black;
     color: white;
 }
@@ -85,3 +85,4 @@ body {
 ul {
     list-style-type: none;
 }
+

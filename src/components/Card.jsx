@@ -5,7 +5,7 @@ function Card(props) {
         <div>
             <div className="card">
                 <img src={props.img} className="card-img-top" alt={props.name} />
-                <div className="card-body">
+                <div className="card-body carousel-card">
                     <h5 className="card-title">{props.name}</h5>
                     <p className="card-text">
                         Gender: {props.gender}<br/>
@@ -18,7 +18,8 @@ function Card(props) {
                                 Learn more
                             </Link>
                         </button>
-                        <button href="#" className="btn btn-outline-warning">
+                        <button href="#" className="btn btn-outline-warning"
+                        onClick={props.onAdd}>
                             <i className="fa-regular fa-heart"></i>
                         </button>                        
                     </div>

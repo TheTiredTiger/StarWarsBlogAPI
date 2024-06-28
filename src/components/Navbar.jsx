@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Context } from "./Context";
 
 function Navbar() {
-  const { handleDelete } = useContext(Context);
+  const { handleDelete, favorites } = useContext(Context);
 
   return (
     <>
@@ -17,12 +17,15 @@ function Navbar() {
               <i className="fa-regular fa-heart"></i>
           </a>
           <ul className="dropdown-menu dropdown-menu-end dropdown-menu-dark">
-            <li><a className="dropdown-item" href="#">
-              Action 
+            {favorites.map((item, index) => {
+              <li key={index}>
+                <a className="dropdown-item" href="#">
+                {item.index} 
               <div className="delete-icon">
                 <i onClick={(id) => handleDelete(id)} className="fa-solid fa-trash" aria-hidden="true"/>
               </div>
             </a></li>
+            })}            
           </ul>
         </div>
         </nav>
