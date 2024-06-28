@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect, useReducer } from "react";
 import axios from "axios";
+import { v4 as uuidv4 } from 'uuid';
 
 const Context = createContext(null);
 
@@ -8,8 +9,8 @@ let imgBase = "https://starwars-visualguide.com/assets/img/characters";
 
 function APIContext({children}) {
     const [data, setData] = useState([]);
-    
-    const [favorites, dispatch] = useReducer(favoritesReducer, JSON.parse(localStorage.getItem("favorites")) || []);
+
+    const [favorites, dispatch] = useReducer(favoritesReducer, /* JSON.parse(localStorage.getItem("favorites")) || */ []);
 
     useEffect(() => {
         async function fetchData() {
@@ -17,12 +18,13 @@ function APIContext({children}) {
           let response = await axios.get(URL)
           let people = response.data.results.map((el, index) => {
             let img = `${imgBase}/${index + 1}.jpg`;
-            return {...el, img};
+            let id = uuidv4();
+            return {...el, img, id};
           })
     
           console.log(people);
           setData(people);
-          localStorage.setItem("data", JSON.stringify(people))
+          // localStorage.setItem("data", JSON.stringify(people))
     
           } catch (err) {
             console.error(err);
@@ -37,6 +39,9 @@ function APIContext({children}) {
       switch(action.type) {
         case "add": {
           const newFave = action.payload;
+          if (favorites.includes(newFave)){
+            return favorites;
+          }
           return [
             ...favorites,
             newFave
@@ -53,9 +58,9 @@ function APIContext({children}) {
       }
     }
     
-    useEffect(() => {
+    /* useEffect(() => {
       localStorage.setItem("favorites", JSON.stringify(favorites))
-    }, [favorites])
+    }, [favorites]) */
 
 
     return (

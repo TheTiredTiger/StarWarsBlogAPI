@@ -1,14 +1,17 @@
+import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { Context } from "./Context";
 
 function DetailedView() {
-    let data = JSON.parse(localStorage.getItem("data"));
+    const {data}  = useContext(Context)
+    // let data = JSON.parse(localStorage.getItem("data"));
     let { id } = useParams();
-    let character = data[id];
+    let character = data.filter((el) => el.id === id);
     
 
     return ( 
-        <div className="card" style={{width: "90%", margin: "auto"}} key={character.id}>
+        <div className="card" style={{width: "90%", margin: "auto"}} key={character}>
             <div className="row g-0">
                 <div className="col-md-4">
                     <img src={character.img} className="img-fluid rounded-start" alt={character.name} />

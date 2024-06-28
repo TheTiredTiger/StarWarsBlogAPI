@@ -1,13 +1,12 @@
 import { useContext } from "react";
 import { Context } from "./Context";
-import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Navbar() {
-  const { handleDelete } = useContext(Context);
-  let favorites = JSON.parse(localStorage.getItem("favorites"))
-  let { index } = useParams();
-  let faveChar = favorites[index];
+  const { favorites, dispatch } = useContext(Context);
+  // let favorites = JSON.parse(localStorage.getItem("favorites"))
 
+ 
   return (
     <>
         <nav className="navbar">
@@ -21,12 +20,15 @@ function Navbar() {
               <i className="fa-regular fa-heart"></i>
             </a>
           <ul className="dropdown-menu dropdown-menu-end dropdown-menu-dark">
-              <li><a className="dropdown-item" href="#">
-                {faveChar}
+              {favorites.map((item) => {
+                return (<li key={item.id} ><Link className="dropdown-item" to={`/character/${item.id}`}>
+                  {item.name}
+                </Link>
                 <div className="delete-icon">
-                  <i onClick={(id) => handleDelete(id)} className="fa-solid fa-trash" aria-hidden="true"/>
+                  <i className="fa-solid fa-trash" aria-hidden="true"/>
                 </div>
-            </a></li>           
+            </li>)
+          })}           
           </ul>
         </div>
         </nav>
