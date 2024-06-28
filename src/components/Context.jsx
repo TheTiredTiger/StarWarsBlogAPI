@@ -32,38 +32,33 @@ function APIContext({children}) {
     
     }, [])
 
-        function favoritesReducer(favorites, action){
-          switch(action.type) {
-            case "add": {
-              return [
-                ...favorites,
-              action.payload
-              ]
-            }
-            case "remove": {
-              return favorites.filter((item) => {
-                return item.name !== action.payload.name
-              })
-            }
-          }
+    function favoritesReducer(favorites, action){
+      switch(action.type) {
+        case "add": {
+          const newFave = action.payload;
+          return [
+            ...favorites,
+            newFave
+          ]
         }
+        case "remove": {
+          const filteredFaves = favorites.filter((item) => {
+            item.name !== action.payload.name
+          })
+          return filteredFaves
+        }
+        default:
+          return favorites;
+      }
+    }
 
-        function handleAdd(character) {
-          dispatch({
-              type: "add",
-              payload: character
-          });
-        };
-      
-        function handleDelete(character) {
-          dispatch({
-              type: "remove", 
-              payload: character
-          });
-        };
+    useEffect(() => {
+      localStorage.setItem("favorites", JSON.stringify(favorites))
+    }, [favorites])
+
 
     return (
-        <Context.Provider value={{ data, setData, handleAdd, handleDelete }}>
+        <Context.Provider value={{ data, setData, favoritesReducer }}>
             {children}
         </Context.Provider>
     )

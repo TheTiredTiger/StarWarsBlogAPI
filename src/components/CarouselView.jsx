@@ -3,7 +3,22 @@ import Card from "./Card";
 import { Context } from "./Context";
 
 function CarouselView() {
-    const { data, setData, handleAdd } = useContext(Context);
+    const { data, setData, favorites, dispatch } = useContext(Context);
+
+    function handleAdd(newFave) {
+        dispatch({
+            type: "add",
+            payload: newFave
+        });
+    };
+    
+    function handleDelete(faveRemove) {
+    dispatch({
+        type: "remove", 
+        payload: faveRemove
+    });
+    localStorage.setItem("favorites", JSON.stringify(favorites.filter(item => item.name !== faveRemove)))
+    };
 
     return ( 
     <div>
@@ -17,7 +32,8 @@ function CarouselView() {
             hair={person.hair_color}
             img={person.img}
             id={id}
-            onAdd={() => handleAdd(person)}
+            onAdd={(person) => handleAdd(person.name)}
+            onDelete={(id) => handleDelete(id)}
             />)}
         </div>       
     </div>
