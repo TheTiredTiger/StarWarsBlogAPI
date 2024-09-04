@@ -40,7 +40,10 @@ function APIContext({children}) {
         case "add": {
           const newFave = action.payload;
           if (favorites.includes(newFave)){
-            return favorites;
+            const filteredFaves = favorites.filter(item => {
+              item.name !== action.payload.name
+            })
+            return filteredFaves;
           }
           return [
             ...favorites,

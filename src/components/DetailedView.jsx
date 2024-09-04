@@ -7,9 +7,9 @@ function DetailedView() {
     const {data}  = useContext(Context)
     // let data = JSON.parse(localStorage.getItem("data"));
     let { id } = useParams();
+    let character = data[id];
 /*     let character = data.filter((el) => {
         return el.id === id}); */
-        let character = data[id];
 
 
     return ( 
@@ -29,7 +29,6 @@ function DetailedView() {
                                 <li>Gender: {character.gender}</li>
                                 <li>Height: {character.height} cm</li>
                                 <li>Skin color: {character.skin_color}</li>
-                                {/* <li>Home world: {character.homeworld} </li> */}
                             </ul>
                         </div>
                     </div>

@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Context } from "./Context";
 import { Link } from "react-router-dom";
 
-function Navbar() {
+function Navbar( props ) {
   const { favorites, dispatch } = useContext(Context);
   // let favorites = JSON.parse(localStorage.getItem("favorites"))
 
