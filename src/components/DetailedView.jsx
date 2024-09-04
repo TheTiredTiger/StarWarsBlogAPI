@@ -7,18 +7,20 @@ function DetailedView() {
     const {data}  = useContext(Context)
     // let data = JSON.parse(localStorage.getItem("data"));
     let { id } = useParams();
-    let character = data.filter((el) => el.id === id);
-    
+/*     let character = data.filter((el) => {
+        return el.id === id}); */
+        let character = data[id];
+
 
     return ( 
-        <div className="card" style={{width: "90%", margin: "auto"}} key={character}>
+        <div className="card" style={{width: "90%", margin: "auto"}}>
             <div className="row g-0">
                 <div className="col-md-4">
                     <img src={character.img} className="img-fluid rounded-start" alt={character.name} />
                 </div>
                 <div className="col-md-8">
                     <div className="card-body">
-                        <h5 className="card-title character-name" style={{color: "black"}}>{character.name}</h5>
+                        <h5 className="card-title character-name" style={{color: "black", marginLeft: "20px"}}>{character.name}</h5>
                         <div className="card-text">
                             <ul >
                                 <li>Birth year: {character.birth_year}</li>
@@ -36,9 +38,6 @@ function DetailedView() {
                             <Link className="button-return" to="/">
                                 Go back
                             </Link>
-                        </button>
-                        <button href="#" className="btn btn-outline-warning">
-                            <i className="fa-regular fa-heart"></i>
                         </button>
                     </div>
                 </div>

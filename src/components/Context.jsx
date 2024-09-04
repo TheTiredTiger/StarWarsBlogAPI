@@ -48,7 +48,7 @@ function APIContext({children}) {
           ]
         }
         case "remove": {
-          const filteredFaves = favorites.filter((item) => {
+          const filteredFaves = favorites.filter(item => {
             item.name !== action.payload.name
           })
           return filteredFaves
